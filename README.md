@@ -10,7 +10,7 @@ A digital twin framework for low-voltage distribution networks, built on OpenDSS
 | Feeder models (3 networks, see below) | Working |
 | Snapshot power flow | Working |
 | Digital twin core: asset database and network topology | Working |
-| Time-series (daily) simulation | Not started |
+| Time-series (daily) simulation | Working |
 | DER models (PV, battery, EV) | Not started |
 | Forecasting | Not started |
 | Dashboard | Not started |
