@@ -1,0 +1,2 @@
+transformer,hv_bus,lv_bus,kva,kv_hv,kv_lv
+tx1,sourcebus,lv_board,315.0,11.0,0.42

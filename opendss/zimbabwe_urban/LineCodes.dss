@@ -1,0 +1,4 @@
+! Approximate values for aluminium ABC (aerial bundled conductor)
+New LineCode.abc_95 nphases=3 r1=0.41 x1=0.08 r0=1.64 x0=0.32 units=km normamps=200
+New LineCode.abc_50 nphases=3 r1=0.82 x1=0.09 r0=3.28 x0=0.36 units=km normamps=140
+New LineCode.svc_16 nphases=1 rmatrix=[3.82] xmatrix=[0.20] cmatrix=[0] units=km normamps=75
