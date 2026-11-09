@@ -11,6 +11,7 @@ A digital twin framework for low-voltage distribution networks, built on OpenDSS
 | Snapshot power flow | Working |
 | Digital twin core: asset database and network topology | Working |
 | Time-series (daily) simulation | Working |
+| LV monitoring and alerts (simulated measurements) | Working |
 | DER models (PV, battery, EV) | Not started |
 | Forecasting | Not started |
 | Dashboard | Not started |
@@ -40,3 +41,4 @@ The two Zimbabwean networks are synthetic. They are not real ZETDC feeders. Equi
     python src\twin_core.py zimbabwe_rural    # asset database and topology
 
 Outputs are written to data/assets/<network>/ and models/<network>/network.graphml.
+
