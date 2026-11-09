@@ -1,0 +1,14 @@
+! SYNTHETIC representative Zimbabwean rural LV feeder.
+! NOT a real ZETDC network. See README.md in this folder.
+Clear
+New Circuit.zim_rural basekv=11 pu=1.0 phases=3 bus1=sourcebus MVAsc3=50 MVAsc1=40
+Redirect LineCodes.dss
+Redirect LoadShapes.dss
+New Transformer.TX1 phases=3 windings=2 buses=[sourcebus lv_board] conns=[delta wye] kvs=[11 0.42] kvas=[100 100] %r=1.2 xhl=4.0
+Redirect Lines.dss
+Redirect Loads.dss
+Set voltagebases=[11 0.4]
+Calcvoltagebases
+Buscoords Buscoords.txt
+Set mode=snapshot
+Solve
