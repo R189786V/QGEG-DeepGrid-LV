@@ -16,7 +16,7 @@ A digital twin framework for low-voltage distribution networks, built on OpenDSS
 | DER scenarios and PV hosting capacity (simulated) | Working |
 | Power quality: unbalance, neutral current, motor-start dips, fault sags (no harmonics/flicker) | Working |
 | Interactive network maps, local coordinates (docs/maps) | Working |
-| Forecasting | Not started |
+| Day-ahead net demand forecasting on real Ausgrid zone substation data (XGBoost) | Working |
 | Dashboard | Not started |
 | Validation | Not started |
 
@@ -49,3 +49,15 @@ Outputs are written to data/assets/<network>/ and models/<network>/network.graph
 
 
 
+
+
+## Data sources
+
+Raw data is not included in this repository. To reproduce the forecasting results:
+
+- **Ausgrid Distribution Zone Substation Data** (FY2025 and FY26), from the Research data sets page on ausgrid.com.au. 15-minute net demand (MW) for 175 zone substations. Ausgrid copyright; raw SCADA data, not validated by Ausgrid. Place the two .zip files in `data/raw/ausgrid_zone/`, unzip them, then run `python src\ingest_ausgrid_zone.py`.
+- **Open-Meteo Historical Weather API** (ERA5-based reanalysis), CC BY 4.0. Downloaded by `python src\fetch_weather.py`.
+
+Then run `python src\forecast_zone.py`.
+
+Data issues found and handled: non-chronological column order in the raw files, dataset-wide gaps on 11 days, held (repeated) values including a network-wide event on 16 Feb 2026, spikes, and a sustained load transfer at Kogarah from 21 Mar 2026.

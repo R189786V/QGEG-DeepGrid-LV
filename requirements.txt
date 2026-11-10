@@ -12,6 +12,7 @@ dss-python==0.15.7
 dss-python-backend==0.14.5
 fonttools==4.68.0
 h11==0.16.0
+holidays==0.108
 idna==3.20
 itsdangerous==2.2.0
 Jinja2==3.1.6
@@ -34,13 +35,14 @@ pyarrow==26.0.1
 pycparser==3.12
 pydeck==0.9.3
 pyparsing==3.3.3
-python-dateutil==4.0.0
+python-dateutil==2.9.0.post0
 python-multipart==0.0.33
 referencing==0.37.0
 requests==2.34.2
 rpds-py==2026.9.1
 scikit-learn==1.9.1
 scipy==1.18.1
+six==1.17.0
 starlette==1.10.0
 streamlit==1.67.0
 threadpoolctl==3.8.0
