@@ -15,6 +15,7 @@ A digital twin framework for low-voltage distribution networks, built on OpenDSS
 | Asset health bands, transformer ageing, reliability (assumed fault rates) | Working |
 | DER scenarios and PV hosting capacity (simulated) | Working |
 | Power quality: unbalance, neutral current, motor-start dips, fault sags (no harmonics/flicker) | Working |
+| Interactive network maps, local coordinates (docs/maps) | Working |
 | Forecasting | Not started |
 | Dashboard | Not started |
 | Validation | Not started |
@@ -43,6 +44,7 @@ The two Zimbabwean networks are synthetic. They are not real ZETDC feeders. Equi
     python src\twin_core.py zimbabwe_rural    # asset database and topology
 
 Outputs are written to data/assets/<network>/ and models/<network>/network.graphml.
+
 
 
 
