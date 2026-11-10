@@ -1,4 +1,4 @@
-﻿# QGEG DeepGrid LV
+﻿# QGEG LV Digital Twin
 
 A digital twin framework for low-voltage distribution networks, built on OpenDSS and Python.
 
@@ -63,5 +63,6 @@ Raw data is not included in this repository. To reproduce the forecasting result
 Then run `python src\forecast_zone.py`.
 
 Data issues found and handled: non-chronological column order in the raw files, dataset-wide gaps on 11 days, held (repeated) values including a network-wide event on 16 Feb 2026, spikes, and a sustained load transfer at Kogarah from 21 Mar 2026.
+
 
 
