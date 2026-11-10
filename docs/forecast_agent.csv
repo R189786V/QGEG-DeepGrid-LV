@@ -1,0 +1,4 @@
+substation,test_days,days_switched,switch_episodes,first_switch,mae_weather_mw,mae_level_mw,mae_adaptive_mw
+branxton,181,5,5,2025-11-21,0.728,0.847,0.732
+city_north,175,3,1,2025-12-31,1.837,1.961,1.827
+kogarah,181,48,6,2025-12-20,6.688,3.112,3.218
