@@ -1,0 +1,2 @@
+transformer,kva,peak_loading_pct,max_hotspot_c,ageing_hours_per_day,ageing_vs_normal,band
+tx1,315.0,84.0,86.3,0.76,0.032,Amber

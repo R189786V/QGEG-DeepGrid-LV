@@ -1,0 +1,2 @@
+type,asset,severity,start,end,duration_min,worst_value
+transformer_high_loading,tx1,warning,18:45,20:30,120,83.9829

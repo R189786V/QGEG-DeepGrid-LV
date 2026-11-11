@@ -1,0 +1,3 @@
+type,asset,severity,start,end,duration_min,worst_value
+phase_imbalance,F1,warning,17:30,21:15,240,54.9634
+undervoltage,C037,warning,19:30,20:30,75,0.9378

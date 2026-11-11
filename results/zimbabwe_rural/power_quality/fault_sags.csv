@@ -1,0 +1,4 @@
+feeder,fault_bus,distance_m,fault_current_a,x_cable_rating,slow_clearing_risk,customers_sag,customers_sag_other_feeders,min_v_other_feeders_pu,customers_swell
+F1,f1b_05,640.0,315.0,1.6,True,19,7,0.879,4
+F2,irrigation_pump,820.0,343.0,1.7,True,13,7,0.892,5
+F3,f3_08,320.0,411.0,2.9,True,22,17,0.865,6

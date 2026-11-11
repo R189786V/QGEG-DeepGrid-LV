@@ -1,0 +1,6 @@
+substation,period,model,mae_mw,rmse_mw,mae_pct_of_peak,mape_pct,daily_peak_mae_mw,skill_vs_naive_7d_pct
+Branxton 66_11kV,full test,naive_1d,1.275,2.09,7.59,,1.699,29.8
+Branxton 66_11kV,full test,naive_7d,1.817,2.814,10.82,,2.878,-0.0
+Branxton 66_11kV,full test,xgb_no_weather,1.206,1.881,7.18,,1.834,33.6
+Branxton 66_11kV,full test,xgb_weather,0.728,1.192,4.34,,0.831,59.9
+Branxton 66_11kV,full test,xgb_weather_level,0.847,1.316,5.05,,0.951,53.4

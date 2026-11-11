@@ -1,0 +1,16 @@
+,importance
+lag_7d,0.45382977
+shortwave_radiation,0.13178195
+is_holiday,0.113105305
+dow,0.09250552
+lag_1d,0.06834919
+is_weekend,0.062261984
+cdh,0.03654973
+minute_of_day,0.01712934
+temperature_2m,0.008839747
+doy_cos,0.0054165716
+prev_day_mean,0.004159373
+doy_sin,0.0029126874
+relative_humidity_2m,0.0014625995
+hdh,0.0011793079
+cloud_cover,0.000516859

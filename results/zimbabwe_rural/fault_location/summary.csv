@@ -1,0 +1,3 @@
+method,median_error_m,p90_error_m,within_25m_pct,within_100m_pct,exact_point_pct
+impedance,55.8,293.1,36.5,60.0,35.5
+reactance,40.0,240.0,37.5,75.0,34.5

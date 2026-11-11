@@ -1,8 +1,10 @@
-﻿.venv/
+.venv/
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
-results/*
+results/forecasting/**/test_predictions.csv
+results/forecasting/**/*.png
+results/forecasting/*.png
 !results/.gitkeep
 data/raw/
 .env

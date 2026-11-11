@@ -1,0 +1,2 @@
+valid,severity,req_v_min,req_v_max,max_tx_loading_pct,max_line_pct,pv_kwh,option,conditions,pass,curtail_pct
+True,0.0,1.0022,1.0447,84.0,58.5,38.18,PV as requested + no EV,0,True,

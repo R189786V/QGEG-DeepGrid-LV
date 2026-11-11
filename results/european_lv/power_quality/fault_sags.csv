@@ -1,0 +1,2 @@
+feeder,fault_bus,distance_m,fault_current_a,x_cable_rating,slow_clearing_risk,customers_sag,customers_sag_other_feeders,min_v_other_feeders_pu,customers_swell
+F1,881,295.9,1156.0,2.9,True,19,0,,23

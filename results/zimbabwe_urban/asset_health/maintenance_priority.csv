@@ -1,0 +1,6 @@
+priority,asset_type,asset,band,customers_affected,reason
+1,transformer,tx1,Amber,128,"peak 84%, ageing 0.03x normal"
+2,feeder,F1,Green,36,"min 221 V, max line 55%, 0 imbalance alerts"
+3,feeder,F2,Green,36,"min 224 V, max line 58%, 0 imbalance alerts"
+4,feeder,F3,Green,36,"min 224 V, max line 58%, 0 imbalance alerts"
+5,feeder,F4,Green,20,"min 225 V, max line 34%, 0 imbalance alerts"

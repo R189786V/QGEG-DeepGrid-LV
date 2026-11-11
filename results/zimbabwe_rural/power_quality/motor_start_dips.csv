@@ -1,0 +1,4 @@
+motor,rated_kw,start_kva,max_dip_pct,worst_customer,customers_over_4pct,customers_over_6pct
+borehole_pump,7.5,52.9,5.67,C045,9,0
+irrigation_pump,22.0,155.3,21.95,C045,57,14
+grinding_mill,15.0,112.5,9.17,C056,57,10

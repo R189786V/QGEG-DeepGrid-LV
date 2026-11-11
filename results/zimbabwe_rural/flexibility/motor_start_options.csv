@@ -1,0 +1,10 @@
+motor,starting,start_kva,max_dip_pct,customers_over_4pct,customers_over_6pct
+borehole_pump,direct-on-line,52.9,5.67,9,0
+borehole_pump,soft starter,26.5,3.2,0,0
+borehole_pump,VSD,10.6,1.8,0,0
+irrigation_pump,direct-on-line,155.3,21.95,57,14
+irrigation_pump,soft starter,77.6,11.93,9,9
+irrigation_pump,VSD,31.1,7.41,8,7
+grinding_mill,direct-on-line,112.5,9.17,57,10
+grinding_mill,soft starter,56.2,5.0,10,0
+grinding_mill,VSD,22.5,2.58,0,0

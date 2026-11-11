@@ -1,0 +1,2 @@
+feeder,customers,line_km,min_voltage_pu,max_line_loading_pct,imbalance_alerts,saifi,saidi_min,eens_kwh_yr,band
+F1,55,1.432,1.0082,24.7,0,0.1532,48.8,17.6,Green

@@ -1,0 +1,6 @@
+substation,period,model,mae_mw,rmse_mw,mae_pct_of_peak,mape_pct,daily_peak_mae_mw,skill_vs_naive_7d_pct
+City North 132_11kV,full test,naive_1d,6.204,11.454,6.81,13.4,11.755,-40.3
+City North 132_11kV,full test,naive_7d,4.421,7.654,4.85,9.69,7.367,-0.0
+City North 132_11kV,full test,xgb_no_weather,2.602,4.533,2.86,6.11,3.993,41.1
+City North 132_11kV,full test,xgb_weather,1.837,3.471,2.02,4.47,2.549,58.4
+City North 132_11kV,full test,xgb_weather_level,1.961,3.712,2.15,4.76,2.495,55.6

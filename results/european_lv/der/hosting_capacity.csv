@@ -1,0 +1,12 @@
+pv_share_pct,pv_kw,v_max_pu,max_line_pct,max_tx_loading_pct,max_export_kw,violations
+0,0.0,1.0577,24.7,6.0,0.0,none
+10,30.0,1.065,22.6,6.0,17.7,none
+20,55.0,1.0762,22.6,6.0,42.2,none
+30,80.0,1.078,27.0,8.4,67.0,none
+40,110.0,1.1114,42.9,12.2,97.7,overvoltage
+50,140.0,1.1433,64.8,16.2,129.3,overvoltage
+60,165.0,1.1487,70.2,19.5,155.5,overvoltage
+70,190.0,1.1478,75.4,22.7,181.3,overvoltage
+80,220.0,1.1607,91.7,26.7,213.7,overvoltage
+90,250.0,1.1486,90.9,30.8,245.9,overvoltage
+100,275.0,1.1589,106.5,34.3,273.8,"overvoltage, line_overload"

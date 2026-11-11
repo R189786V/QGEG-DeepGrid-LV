@@ -1,0 +1,16 @@
+check,network,result,detail
+Hand-calculation benchmark,test circuit,PASS,voltage hand 0.96792 vs OpenDSS 0.96792 pu (diff 0.000000); losses hand 1.3178 vs OpenDSS 1.3177 kW (diff 0.003%)
+"Energy balance (supply = loads + losses), every 15 min",zimbabwe_rural,PASS,worst mismatch 0.00344% of supply; all steps converged: True
+"Energy balance (supply = loads + losses), every 15 min",zimbabwe_urban,PASS,worst mismatch 0.01077% of supply; all steps converged: True
+"Energy balance (supply = loads + losses), every 15 min",european_lv,PASS,worst mismatch 0.01435% of supply; all steps converged: True
+"Physical scaling (half load: higher voltage, about 1/4 losses)",zimbabwe_rural,PASS,min voltage 0.8999 -> 0.9720 pu; loss ratio 0.241 (theory about 0.25)
+"Physical scaling (half load: higher voltage, about 1/4 losses)",zimbabwe_urban,PASS,min voltage 0.9537 -> 0.9995 pu; loss ratio 0.234 (theory about 0.25)
+"Physical scaling (half load: higher voltage, about 1/4 losses)",european_lv,PASS,min voltage 1.0264 -> 1.0381 pu; loss ratio 0.254 (theory about 0.25)
+Topology and data integrity,zimbabwe_rural,PASS,"connected True, radial True, customers 58 (OpenDSS 58), missing 0, unreachable 0"
+Topology and data integrity,zimbabwe_urban,PASS,"connected True, radial True, customers 128 (OpenDSS 128), missing 0, unreachable 0"
+Topology and data integrity,european_lv,PASS,"connected True, radial True, customers 55 (OpenDSS 55), missing 0, unreachable 0"
+Reproducibility (rebuild gives identical files),zimbabwe_rural,PASS,"hash before 97e5499107bc..., after 97e5499107bc..."
+Reproducibility (rebuild gives identical files),zimbabwe_urban,PASS,"hash before 4047929adaf9..., after 4047929adaf9..."
+Forecast beats the last-week baseline in every fold,city_north,PASS,"skill by fold: 61.3%, 59.2%, 57.3%"
+Forecast beats the last-week baseline in every fold,branxton,PASS,"skill by fold: 62.9%, 61.5%, 52.8%"
+Forecast beats the last-week baseline in every fold (level-adjusted),kogarah,PASS,"skill by fold: 60.9%, 58.5%, 47.0%"

@@ -1,0 +1,17 @@
+,today (no new DER),controller: none,controller: smart,controller: network
+converged,True,False,True,True
+severity,0.31,564.85,63.67,93.9
+customers_out_of_limits,1,41,32,33
+customers_undervoltage,1,41,17,29
+customers_overvoltage,0,29,29,27
+v_min_pu,0.9369,0.4318,0.905,0.8605
+v_max_pu,1.061,1.1932,1.1975,1.1925
+tx_peak_pct,64.3,248.2,86.0,105.4
+max_import_kw,60.7,225.0,78.8,96.9
+max_export_kw,0.0,83.3,78.9,68.3
+max_line_pct,47.3,222.7,57.7,66.5
+losses_kwh,47.3,169.2,88.6,91.2
+solar_used_on_site_pct,,29.5,33.1,33.0
+layer_check_max_kw,,20.271,0.004,0.004
+layer_alignment,,same step,same step,same step
+layer_check_mean_kw,,0.893,0.0,0.001

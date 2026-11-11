@@ -333,7 +333,17 @@ def forecasting_page():
     page_header("Forecasting: real Ausgrid zone substation data")
     sub = st.selectbox("Substation", list(SUBSTATIONS), format_func=SUBSTATIONS.get)
     p = load(RES / "forecasting" / sub / "test_predictions.csv", index_col=0, parse_dates=True)
-    if not have(p, "forecasting"):
+    if p is None:
+        st.info("The forecast-versus-demand curves use Ausgrid data, which is not republished in this hosted "
+                "version. Accuracy results are shown below; the full charts run locally.")
+        m = load(RES / "forecasting" / sub / "metrics.csv")
+        if m is not None:
+            section("Accuracy on the test period")
+            table(m.drop(columns="substation"))
+        fa = load(RES / "agents" / "forecast_agent.csv")
+        if fa is not None:
+            section("Forecast agent")
+            table(fa[fa["substation"] == sub])
         return
     peak = p["actual"].idxmax()
     lo, hi = p.index.min(), p.index.max()

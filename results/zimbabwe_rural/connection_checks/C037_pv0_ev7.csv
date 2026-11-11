@@ -1,0 +1,3 @@
+valid,severity,req_v_min,req_v_max,max_tx_loading_pct,max_line_pct,pv_kwh,option,conditions,pass
+True,17.14,0.8474,1.0185,70.2,59.7,0.0,no PV + EV uncontrolled,0,False
+True,0.28,0.9378,1.0168,64.3,47.2,0.0,no PV + EV managed 23:00-05:00,1,True

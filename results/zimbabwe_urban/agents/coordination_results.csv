@@ -1,0 +1,13 @@
+combination,ev,battery,voltwatt,hours_undervoltage,hours_overvoltage,hours_tx_overload,hours_line_overload,customers_out_of_limits,v_min_pu,v_max_pu,max_tx_loading_pct,max_line_pct,max_export_kw,pv_kwh,losses_kwh,nonconverged_steps,violation_hours,severity,n_actions,curtail_pct,valid,feasible
+EV managed + smart battery,managed,True,False,0.0,0.25,0.0,0.0,5,0.9712,1.1055,67.7,55.1,100.7,2443.7,80.2,0,0.25,0.14,2,0.0,True,False
+EV slow + smart battery,slow,True,False,0.0,0.25,0.0,0.0,5,0.9712,1.1055,74.9,57.1,100.7,2443.7,79.9,0,0.25,0.14,2,0.0,True,False
+EV managed + smart battery + volt-watt,managed,True,True,0.0,0.25,0.0,0.0,5,0.9712,1.1055,67.7,55.1,100.7,2443.4,80.1,0,0.25,0.14,3,0.0,True,False
+EV slow + smart battery + volt-watt,slow,True,True,0.0,0.25,0.0,0.0,5,0.9712,1.1055,74.9,57.1,100.7,2443.4,79.9,0,0.25,0.14,3,0.0,True,False
+EV managed + volt-watt,managed,False,True,0.0,6.0,0.0,0.0,17,0.9593,1.1087,84.0,62.6,162.6,2389.9,122.7,0,6.0,4.94,2,2.2,True,False
+EV slow + volt-watt,slow,False,True,0.0,6.0,0.0,0.0,18,0.9593,1.1087,86.7,63.0,162.6,2389.9,123.4,0,6.0,4.95,2,2.2,True,False
+EV managed,managed,False,False,0.0,6.0,0.0,0.0,28,0.9593,1.1407,84.0,70.1,180.0,2443.7,129.8,0,6.0,16.92,1,0.0,True,False
+EV slow,slow,False,False,0.0,6.0,0.0,0.0,28,0.9593,1.1407,86.7,70.1,180.0,2443.7,130.5,0,6.0,16.92,1,0.0,True,False
+EV uncontrolled + smart battery,uncontrolled,True,False,2.0,0.25,2.0,2.0,27,0.8992,1.1055,134.3,133.2,100.7,2443.7,110.0,0,6.25,129.23,1,0.0,True,False
+EV uncontrolled + smart battery + volt-watt,uncontrolled,True,True,2.0,0.25,2.0,2.0,27,0.8992,1.1055,134.3,133.2,100.7,2443.4,109.9,0,6.25,129.23,2,0.0,True,False
+EV uncontrolled + volt-watt,uncontrolled,False,True,2.0,6.0,2.0,2.0,51,0.8631,1.1087,174.5,152.5,162.6,2389.9,175.1,0,12.0,261.67,1,2.2,True,False
+EV uncontrolled,uncontrolled,False,False,2.0,6.0,2.0,2.0,55,0.8631,1.1407,174.5,152.5,180.0,2443.7,182.2,0,12.0,273.64,0,0.0,True,False

@@ -1,0 +1,2 @@
+transformer,kva,peak_loading_pct,max_hotspot_c,ageing_hours_per_day,ageing_vs_normal,band
+tx1,100.0,64.3,68.5,0.32,0.013,Green

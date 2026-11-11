@@ -1,0 +1,5 @@
+wrong_pct,draws,customers_wrong,mean_voltage_error_v,max_voltage_error_v,missed_violations_avg,missed_violations_max,false_alarms_avg,false_alarms_max,worst_phase_correct_pct,phase_peak_current_error_pct
+0,1,0,0.0,0.0,0.0,0,0.0,0,100.0,0.0
+10,10,6,6.47,34.41,3.4,11,3.7,8,76.68,10.68
+20,10,11,7.75,38.78,5.0,10,4.7,10,63.33,15.52
+30,10,16,10.07,47.0,9.8,18,6.4,10,50.01,18.85

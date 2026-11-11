@@ -1,0 +1,5 @@
+feeder,peak_kw,peak_time,energy_kwh,max_imbalance_pct,customers
+F1,65.3,19:15,836.1,22.9,36
+F2,72.5,20:30,930.7,20.5,36
+F3,70.4,19:15,910.5,19.4,36
+F4,38.3,19:15,601.8,32.7,20
