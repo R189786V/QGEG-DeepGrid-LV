@@ -20,7 +20,7 @@ A digital twin framework for low-voltage distribution networks, built on OpenDSS
 | Rule-based agents: adaptive forecasting, visibility, coordination by re-simulation, decision reports with operator approval gate | Working |
 | Day-ahead net demand forecasting on real Ausgrid zone substation data (XGBoost) | Working |
 | Dashboard | Not started |
-| Validation | Not started |
+| Validation: 15/15 checks passed (benchmark, energy balance, scaling, integrity, reproducibility, forecast cross-validation) | Working |
 
 ## Networks
 
@@ -63,6 +63,7 @@ Raw data is not included in this repository. To reproduce the forecasting result
 Then run `python src\forecast_zone.py`.
 
 Data issues found and handled: non-chronological column order in the raw files, dataset-wide gaps on 11 days, held (repeated) values including a network-wide event on 16 Feb 2026, spikes, and a sustained load transfer at Kogarah from 21 Mar 2026.
+
 
 
 
