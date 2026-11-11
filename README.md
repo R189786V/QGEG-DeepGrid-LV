@@ -2,6 +2,8 @@
 
 **A research prototype** for investigating digital twin methods for low-voltage (LV) distribution networks: three-phase network modelling in OpenDSS, DER integration, day-ahead forecasting on real utility data, flexibility management, and rule-based agents whose every recommendation is verified by re-simulation. It is a research platform, not a deployed utility system.
 
+**Related publication:** K. Murove, "Intelligent IoT and Digital Twin Applications for Real-Time Monitoring and Management of Low-Voltage Electrical Networks," *Communications and Intelligent Networked Computing*, under review. The review proposes the framework (under its earlier name, QGEG DeepGrid LV); this repository implements its simulation, AI and application layers as a digital model, the first stage of evaluation on test feeders that the review recommends.
+
 ## Highlights
 
 - **3 network models:** the IEEE European LV Test Feeder (published benchmark) and two synthetic Zimbabwean networks (urban and rural).
@@ -118,6 +120,7 @@ Raw data is not included in this repository. To reproduce the forecasting result
 Then run `python src\forecast_zone.py`.
 
 Data issues found and handled: non-chronological column order in the raw files, dataset-wide gaps on 11 days, held (repeated) values including a network-wide event on 16 Feb 2026, spikes, and a sustained load transfer at Kogarah from 21 Mar 2026.
+
 
 
 
