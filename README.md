@@ -5,7 +5,7 @@
 ## Highlights
 
 - **3 network models:** the IEEE European LV Test Feeder (published benchmark) and two synthetic Zimbabwean networks (urban and rural).
-- **11 modules,** from the network core to a research dashboard (see Modules below).
+- **13 modules,** from the network core to an animated twin view, a What-if simulator and a research dashboard (see Modules below).
 - **Real utility data:** 2 years of 15-minute demand for 175 Ausgrid zone substations loaded and quality-checked; day-ahead forecasting at 3 substations.
 - **Forecasting:** 47–63% lower error than the last-week baseline in every cross-validation fold; 4.5% MAPE at City North (Sydney CBD).
 - **Hosting capacity:** rooftop PV limited by overvoltage at about 10% (rural), 20% (urban) and 30% (European) of homes.
@@ -118,6 +118,7 @@ Raw data is not included in this repository. To reproduce the forecasting result
 Then run `python src\forecast_zone.py`.
 
 Data issues found and handled: non-chronological column order in the raw files, dataset-wide gaps on 11 days, held (repeated) values including a network-wide event on 16 Feb 2026, spikes, and a sustained load transfer at Kogarah from 21 Mar 2026.
+
 
 
 

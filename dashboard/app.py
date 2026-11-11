@@ -151,7 +151,7 @@ def overview():
     cv = load(RES / "validation" / "forecast_cross_validation.csv")
     k = st.columns(4)
     k[0].metric("Networks modelled", "3", help="IEEE European LV benchmark + synthetic Zimbabwe urban and rural")
-    k[1].metric("Modules", "11")
+    k[1].metric("Modules", "13")
     if val is not None:
         k[2].metric("Validation checks passed", f"{int((val['result'] == 'PASS').sum())} / {len(val)}")
     if cv is not None:
@@ -643,6 +643,7 @@ elif page == "Flexibility and agents":
     flexibility_page(net)
 else:
     connection_page(net)
+
 
 
 
