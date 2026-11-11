@@ -1,4 +1,4 @@
-﻿"""QGEG LV Digital Twin - research dashboard (Phase 12).
+"""QGEG LV Digital Twin - research dashboard (Phase 12).
 
 Reads the result files produced by the scripts in src/; it does not re-run simulations,
 except the Connection check page, which re-simulates one request on demand.
@@ -24,9 +24,9 @@ SUBSTATIONS = {"city_north": "City North (Sydney CBD)", "kogarah": "Kogarah (sub
 ZIM = ["zimbabwe_rural", "zimbabwe_urban"]
 V_LOW, V_HIGH = 0.94, 1.10
 PAGES = ["Overview", "What-if simulator", "Network and planning", "Operations", "Asset health",
-         "Forecasting", "Flexibility and agents", "Connection check"]
+         "Forecasting", "Flexibility and agents", "Connection check", "Customer nodes", "Fault location"]
 
-st.set_page_config(page_title="QGEG LV Digital Twin", page_icon="âš¡", layout="wide")
+st.set_page_config(page_title="QGEG LV Digital Twin", page_icon="⚡", layout="wide")
 st.markdown("<style>" + (ROOT / "dashboard" / "style.css").read_text(encoding="utf-8") + "</style>", unsafe_allow_html=True)
 
 
@@ -151,13 +151,13 @@ def overview():
     cv = load(RES / "validation" / "forecast_cross_validation.csv")
     k = st.columns(4)
     k[0].metric("Networks modelled", "3", help="IEEE European LV benchmark + synthetic Zimbabwe urban and rural")
-    k[1].metric("Modules", "13")
+    k[1].metric("Modules", "15")
     if val is not None:
         k[2].metric("Validation checks passed", f"{int((val['result'] == 'PASS').sum())} / {len(val)}")
     if cv is not None:
         best = cv[cv["model"].isin(["xgb_weather", "xgb_weather_level"])] \
             .groupby(["substation", "fold"])["skill_vs_naive_7d_pct"].max()
-        k[3].metric("Forecast error cut vs baseline", f"{best.min():.0f}â€“{best.max():.0f}%",
+        k[3].metric("Forecast error cut vs baseline", f"{best.min():.0f}–{best.max():.0f}%",
                     help="Real Ausgrid data, every cross-validation fold")
 
     section("Network status")
@@ -310,7 +310,7 @@ def asset_page(net):
         c = st.columns(4)
         c[0].metric("Transformer band", r["band"])
         c[1].metric("Peak loading", f"{r['peak_loading_pct']}%")
-        c[2].metric("Max hot-spot", f"{r['max_hotspot_c']} Â°C")
+        c[2].metric("Max hot-spot", f"{r['max_hotspot_c']} °C")
         c[3].metric("Ageing vs normal", f"{r['ageing_vs_normal']}x")
     fh, pr, rel = load(ah / "feeder_health.csv"), load(ah / "maintenance_priority.csv"), load(ah / "reliability_summary.csv")
     if fh is not None:
@@ -619,6 +619,92 @@ def whatif_page(net):
     st.caption("The map opens at the moment of peak transformer loading. Press Play or drag the slider to replay the day.")
 
 
+def num(df, col, row):
+    try:
+        return float(df.loc[row, col])
+    except (KeyError, ValueError, TypeError):
+        return None
+
+
+def customer_nodes_page(net):
+    page_header(f"Customer nodes: {NETWORKS[net]}")
+    out = RES / net / "customer_nodes"
+    comp = load(out / "network_comparison.csv", index_col=0)
+    if comp is None:
+        st.info(f"No results yet. Run: python src/customer_nodes.py {net} pv=0.5 ev=0.3 hp=0.4 battery=0.5 control=all")
+        return
+    ctrls = [c for c in comp.columns if c.startswith("controller:")]
+    sm, nw = "controller: smart", "controller: network"
+    if sm in comp and nw in comp:
+        callout(f"<b>Network-aware control:</b> transformer peak {num(comp, sm, 'tx_peak_pct'):.0f}% to "
+                f"{num(comp, nw, 'tx_peak_pct'):.0f}% | customers out of limits {num(comp, sm, 'customers_out_of_limits'):.0f} "
+                f"to {num(comp, nw, 'customers_out_of_limits'):.0f} | peak export {num(comp, sm, 'max_export_kw'):.0f} to "
+                f"{num(comp, nw, 'max_export_kw'):.0f} kW, compared with home-only control")
+    st.caption("Each customer is a node: meter profile, rooftop PV, home battery, EV charger and heat-pump water heater, "
+               "a node controller and a net meter. Every net meter drives the OpenDSS network model at each 15-minute "
+               "step. All DER is hypothetical and simulated.")
+    section("Controllers compared")
+    keep = ["severity", "customers_out_of_limits", "customers_undervoltage", "customers_overvoltage", "v_min_pu",
+            "v_max_pu", "tx_peak_pct", "max_import_kw", "max_export_kw", "max_line_pct", "losses_kwh",
+            "solar_used_on_site_pct"]
+    st.dataframe(comp.loc[[k for k in keep if k in comp.index]].T, use_container_width=True)
+    if ctrls and "layer_check_max_kw" in comp.index:
+        worst = max(num(comp, c, "layer_check_max_kw") or 0 for c in ctrls)
+        st.caption(f"Cross-layer balance check: transformer import minus losses equals the sum of all net meters "
+                   f"at every step (largest mismatch {worst:.3f} kW).")
+    img = out / "example_node.png"
+    if img.exists():
+        section("One home, and the whole network")
+        st.image(str(img), use_container_width=True)
+    section("Customer table")
+    ctrl = st.selectbox("Controller", [c.replace("controller: ", "") for c in ctrls], key=f"cn-{net}")
+    t = load(out / f"node_summary_{ctrl}.csv")
+    if t is not None:
+        st.dataframe(t, hide_index=True, use_container_width=True)
+
+
+def fault_page(net):
+    page_header(f"Fault location: {NETWORKS[net]}")
+    out = RES / net / "fault_location"
+    summ, tf = load(out / "summary.csv"), load(out / "test_faults.csv")
+    if summ is None or tf is None:
+        st.info(f"No results yet. Run: python src/fault_locator.py {net} 200")
+        return
+    s = summ.set_index("method")
+    callout(f"<b>{len(tf)} simulated faults located from busbar measurements only:</b> feeder identified "
+            f"{100 * tf['feeder_identified'].mean():.0f}% | median error {s.loc['reactance', 'median_error_m']:.0f} m "
+            f"(reactance) | typically {tf['reactance_candidates'].median():.0f} candidate points to check")
+    st.caption("Random faults with unknown fault resistance (0.001 to 0.5 ohm), load level (30 to 100%) and measurement "
+               "error (1%, 0.5 degrees). The locator sees only busbar voltage and feeder-head currents; errors are "
+               "cable distance to the true fault. Simulated (phasor values), not field-validated.")
+    section("Methods compared")
+    cols = st.columns(2)
+    for col, m in zip(cols, ["impedance", "reactance"]):
+        with col:
+            with st.container(border=True):
+                st.markdown(f"**{m.capitalize()} method**")
+                a, b, c = st.columns(3)
+                a.metric("Median error", f"{s.loc[m, 'median_error_m']:.0f} m")
+                b.metric("Within 100 m", f"{s.loc[m, 'within_100m_pct']:.0f}%")
+                c.metric("90% within", f"{s.loc[m, 'p90_error_m']:.0f} m")
+    section("Effect of fault resistance")
+    tf = tf.copy()
+    tf["Fault resistance"] = pd.cut(tf["fault_r_ohm"], [0, 0.01, 0.1, 0.5],
+                                    labels=["solid (<= 0.01 ohm)", "0.01 to 0.1 ohm", "0.1 to 0.5 ohm"])
+    by = (tf.groupby("Fault resistance", observed=True)[["impedance_error_m", "reactance_error_m"]].median()
+          .round(1).rename(columns={"impedance_error_m": "Impedance: median error (m)",
+                                    "reactance_error_m": "Reactance: median error (m)"}))
+    st.dataframe(by, use_container_width=True)
+    st.caption("The impedance method is exact for solid faults but fault resistance makes faults look farther away; "
+               "the reactance method is unaffected by fault resistance. Branching leaves several points that look "
+               "the same from the busbar.")
+    img = out / "fault_location.png"
+    if img.exists():
+        st.image(str(img), use_container_width=True)
+    with st.expander("All test faults"):
+        st.dataframe(tf.drop(columns=["Fault resistance"]), hide_index=True, use_container_width=True)
+
+
 st.sidebar.title("QGEG LV Digital Twin")
 page = st.sidebar.radio("Section", PAGES)
 net = None
@@ -641,10 +727,9 @@ elif page == "Forecasting":
     forecasting_page()
 elif page == "Flexibility and agents":
     flexibility_page(net)
-else:
+elif page == "Connection check":
     connection_page(net)
-
-
-
-
-
+elif page == "Customer nodes":
+    customer_nodes_page(net)
+else:
+    fault_page(net)
