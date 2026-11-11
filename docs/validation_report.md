@@ -72,3 +72,10 @@ Note: european_lv has 905 of 905 lines at the OpenDSS default 400 A rating.
 - Asset health is stress-based (loading and voltage), not based on asset age, inspections or condition data.
 - Harmonics, flicker and transient events are not modelled (they need measured spectra or time-domain models).
 - Agents are deterministic rules tested on one day; they are decision support and require operator approval.
+## Cross-layer balance check (customer node layer)
+
+The customer node layer sets every load and generator at each 15-minute step and solves OpenDSS for that moment, so Python is the single timekeeper. At every step, transformer import minus losses equals the sum of all customer net meters: maximum mismatch 0.011 kW (urban network, three controllers, 96 steps each).
+
+An earlier version that let OpenDSS read hourly load profiles with its own clock showed a mismatch of up to 74.4 kW: a timing offset of one to two steps at hour boundaries, with no energy lost over the day (mean mismatch 0.01 kW). The check found this before any result was reported.
+
+Limitation found by this check: the smart-battery scenarios in Phases 10 and 11 mixed the two timing conventions, so battery schedules may be misaligned with house demand by 15 to 30 minutes around hour changes. Comparisons between scenarios hold; absolute values in those phases carry this uncertainty.
