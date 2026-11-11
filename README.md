@@ -1,8 +1,10 @@
-﻿# QGEG LV Digital Twin
+# QGEG LV Digital Twin
 
 **A research prototype** for investigating digital twin methods for low-voltage (LV) distribution networks: three-phase network modelling in OpenDSS, DER integration, day-ahead forecasting on real utility data, flexibility management, and rule-based agents whose every recommendation is verified by re-simulation. It is a research platform, not a deployed utility system.
 
 **Related publication:** K. Murove, "Intelligent IoT and Digital Twin Applications for Real-Time Monitoring and Management of Low-Voltage Electrical Networks," *Communications and Intelligent Networked Computing*, under review. The review proposes the framework (under its earlier name, QGEG DeepGrid LV); this repository implements its simulation, AI and application layers as a digital model, the first stage of evaluation on test feeders that the review recommends.
+
+**Live dashboard:** https://qgeg-lv-digital-twin.streamlit.app (free hosting: it may take about a minute to wake after a quiet period; the Ausgrid demand curves are not republished there).
 
 ## Highlights
 
