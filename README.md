@@ -129,3 +129,24 @@ Data issues found and handled: non-chronological column order in the raw files, 
 
 
 
+
+## Positioning: the 6C maturity path
+
+Peng et al. (2025) propose six development goals for low-voltage distribution digital twins. This prototype:
+
+| 6C goal | This prototype |
+|---|---|
+| Clear Measurement | Not achieved: readings are simulated; forecasting uses real substation data only |
+| Cognizable State | Achieved in simulation: Monitor, Power Quality, Asset Health, Fault Locator |
+| Controllable Devices | Simulated only: phase rebalancing, pump scheduling |
+| Configurable Parameters | Achieved in simulation: volt-watt, EV charging windows, battery control |
+| Combinable Resources | Achieved in simulation: Customer Nodes, coordination agent |
+| Coordinated Autonomy | Deliberately not: agents recommend, an operator approves |
+
+Every candidate action is re-simulated against voltage and thermal limits before it is recommended, which addresses the review's call to evaluate regulation strategies before they are applied.
+
+Peng, Y. et al. (2025). Review of Digital Twin Technology in Low-Voltage Distribution Area and the Implementation Path Based on the '6C' Development Goals. Energies 18(17), 4459. doi:10.3390/en18174459
+
+## Data-quality experiment
+
+`src/data_quality.py` records 10%, 20% and 30% of single-phase customers on the wrong phase (10 random draws each) and compares the twin's predictions with the true network on the same day. On the rural network, 10% wrong records already give a mean voltage error of about 6.5 V; at 30%, the twin misses about 10 of 33 customers out of limits, raises a similar number of false alarms, and identifies the most loaded phase on only about half the feeders. Phase identification is therefore a prerequisite for phase-based decisions.
