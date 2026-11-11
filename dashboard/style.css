@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+html, body, p, li, label, td, th, input, textarea, [data-testid="stMarkdownContainer"] {font-family: 'Roboto', sans-serif;}
+p, li {color: #646567;}
+h1, h2, h3 {font-family: 'Roboto', sans-serif !important; font-weight: 700 !important; color: #1c1f3e;}
+.block-container {padding-top: 1.5rem; max-width: 1500px;}
+section[data-testid="stSidebar"] {background: #1c1f3e;}
+section[data-testid="stSidebar"] h1, section[data-testid="stSidebar"] p, section[data-testid="stSidebar"] label {color: #ffffff !important; font-weight: 500;}
+div[data-testid="stMetric"] {background: #ffffff; border: 1px solid #e6e8ef; border-radius: 6px; padding: 14px 18px;}
+div[data-testid="stMetricLabel"] p {color: #646567 !important; font-size: 0.9rem; font-weight: 500;}
+div[data-testid="stMetricValue"] {font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 1.9rem; color: #1c1f3e !important;}
+div[data-testid="stVerticalBlockBorderWrapper"] {background: #ffffff; border-color: #e6e8ef !important; border-radius: 6px;}
+.page-head {background: #1c1f3e; padding: 28px 32px 30px 32px;}
+.crumb {color: #ffffff; font-weight: 700; font-size: 0.95rem; margin-bottom: 10px;}
+.page-title {font-family: 'Roboto', sans-serif; font-size: 2.4rem; font-weight: 700; color: #fab724; line-height: 1.15;}
+.page-sub {color: #ffffff; font-size: 1rem; margin-top: 8px;}
+.accent-strip {height: 12px; background: #fab724; margin-bottom: 30px;}
+.section-title {font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 1.7rem; color: #1c1f3e; margin: 26px 0 8px 0;}
+.section-rule {width: 90px; height: 4px; background: #fab724; margin-bottom: 18px;}
+.callout {background: #fab724; color: #1c1f3e; padding: 30px 34px; font-size: 1.3rem; text-align: center; margin: 10px 0 22px 0;}
+.callout b {color: #1c1f3e; font-weight: 700;}
